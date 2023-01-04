@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{ $headless := .Site.GetPage "/homepage" }}
+{{ $sections := $headless.Resources.ByType "page" }}
+{{ $sections := cond .Site.BuildDrafts $sections (where $sections "Draft" "==" false) }}
+<header {{ with .Params.header_image }}style="background-image: url({{ . }})"{{ end }}>
+    <div>
+        <div>
+
+            {{ with .Params.header_headline }}<h1 >{{ . }}</h1>{{ end }}
+            {{ with .Params.header_subheadline }}<h2 >{{ . }}</h2>{{ end }}
+
+            {{ range where $sections ".Params.header_menu" "eq" true }}
+            <a data-title-anchor='{{ anchorize .Title }}'>{{ .Title }}</a>
+            {{ end }}
+        </div>
+    </div>
+</header>
+<main role="main">
+    <div>
+        {{ partial "heroBanner.html" . }}
+    </div>
+    <div>
+    </div>
+    {{ range $index_val, $elem_val := $sections }}
+    <div>
+        <article id='{{ anchorize .Title }}' class='post {{ if eq $index_val 0 }}first{{ end }} {{ if eq (add $index_val 1) (len $sections) }}last{{ end }}'>
+            <header >
+                <h2 >{{ .Title }}</h2>
+            </header>
+            <section >
+                {{ .Content }}
+            </section>
+        </article>
+        <div ></div>
+    </div>
+    {{ end }}
+
+
+        <section>
+            <h2>HEllo OUR TEAM</h2>
+            <div>
+                <div>
+                    {{ range (where .Site.RegularPages "Section" "team") }}
+                    {{partial "ourTeam.html" .Params }}
+                    {{ end }}
+                </div>
+            </div>
+        </section>
+    <section>
+    <div>
+        {{ range (where .Site.RegularPages "Section" "products") }}
+        {{ partial "product.html" .Params }}
+        {{ end }}
+    </div>
+    </section>
+
+</main>
+{{ end }}
+

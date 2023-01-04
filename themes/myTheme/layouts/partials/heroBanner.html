@@ -1,0 +1,16 @@
+{{ with .Site.Params.HeroBanner }}
+{{ if .enable }}
+{{ "<!-- Site HeroBanner Start -->" | safeHTML }}
+<section class="background-image" style="background-image: url('{{ .background_image }}')">
+    <div class="text">
+        <h1 class="title">
+            {{ .title }}
+        </h1>
+        <p class="subtext">{{ .text }}</p>
+        <button class="button">{{ .button_text }}</button>
+    </div>
+
+</section>
+{{ "<!-- Site HeroBanner End -->" | safeHTML }}
+{{ end }}
+{{ end }}
