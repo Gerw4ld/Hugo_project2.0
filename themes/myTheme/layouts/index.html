@@ -47,8 +47,9 @@
     {{ end }}
 
     <section class="mainInfo">
-        {{ with .Params.mainInfo_title }}<h2>{{ . }}</h2>{{ end }}
-        {{ with .Params.mainInfo_subtitle }}<p>{{ . }}</p>{{ end }}
+
+        {{ with .Site.GetPage "section" "mainInfo" }}<h2>{{ .Params.mainInfo_title }}</h2>{{ end }}
+        {{ with .Site.GetPage "section" "mainInfo"  }}<p>{{ .Params.mainInfo_subtitle }}</p>{{ end }}
         <div class="containerText">
             {{ range (where .Site.RegularPages.ByWeight "Section" "mainInfo") }}
             {{partial "sections/mainInfo.html" .Params }}
