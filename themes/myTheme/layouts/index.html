@@ -16,7 +16,19 @@
     </div>
 </header>
 <main role="main">
-    <div> {{ partial "sections/heroBanner.html" . }}</div>
+
+    <section>
+        <div>
+            {{ range (where .Site.RegularPages "Section" "products") }}
+            {{ partial "product.html" . }}
+            {{ end }}
+        </div>
+    </section>
+
+    <section>
+        <div> {{ partial "sections/heroBanner.html" . }}</div>
+    </section>
+
     <div>
     </div>
     {{ range $index_val, $elem_val := $sections }}
@@ -34,25 +46,48 @@
     </div>
     {{ end }}
 
-
-    <section>
-        <h2>Hello OUR TEAM</h2>
-        <div>
-            <div>
-                {{ range .Site.Data.team }}
-                {{partial "sections/ourTeam.html" . }}
-                {{ end }}
-            </div>
-        </div>
-    </section>
-    <section>
-        <div>
-            {{ range (where .Site.RegularPages "Section" "products") }}
-            {{ partial "product.html" .Params }}
+    <section class="mainInfo">
+        {{ with .Params.mainInfo_title }}<h2>{{ . }}</h2>{{ end }}
+        {{ with .Params.mainInfo_subtitle }}<p>{{ . }}</p>{{ end }}
+        <div class="containerText">
+            {{ range (where .Site.RegularPages "Section" "mainInfo") }}
+            {{partial "sections/mainInfo.html" .Params }}
+            {{.Content}}
             {{ end }}
         </div>
     </section>
 
+    <section class="contactAndInfoContainer">
+        {{ range (where .Site.RegularPages "Section" "contactAndInfo") }}
+        {{partial "sections/contactAndInfo.html" .Params }}
+        {{.Content}}
+        {{ end }}
+    </section>
+
+    <section class="ourTeam">
+
+        {{ with .Params.ourTeam_title }}<h2>{{ . }}</h2>{{ end }}
+        <div class="containerText">
+            {{ range .Site.Data.team }}
+            {{partial "sections/ourTeam.html" . }}
+            {{.Content}}
+            {{ end }}
+        </div>
+    </section>
+
+    <section class="interest">
+        {{ range (where .Site.RegularPages "Section" "interest") }}
+        {{partial "sections/interest.html" .Params }}
+        {{.Content}}
+        {{ end }}
+    </section>
+
+    <section class="textField">
+        {{ range (where .Site.RegularPages "Section" "textField") }}
+        {{partial "sections/textField.html" .Params }}
+        {{.Content}}
+        {{ end }}
+    </section>
+
 </main>
 {{ end }}
-

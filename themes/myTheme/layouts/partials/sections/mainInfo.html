@@ -1,32 +1,12 @@
-{{ with .Site.Data.mainInfo }}
-{{ if .enable }}
-<section class="mainInfo">
-    <div>
-        <h2>
-            {{ .title }}
-        </h2>
-        <p>
-            {{ .subtitle }}
-        </p>
-    </div>
-    <div class="containerText">
-        {{ range .item }}
-        <div>
-            <input type="checkbox" id="toggle" class="toggle">
-            <label for="toggle">
-                <img style="cursor: pointer" src="{{ .image | absURL }}" alt="product photo">
+<div class="containerText">
+        <input type="checkbox" id="toggle" class="toggle">
+        <label for="toggle">
+            <img style="cursor: pointer" src="{{ .image | absURL }}" alt="product photo">
 
-            </label>
-            <div class="toggleText">
-                <p>
-                    {{ .text }}
-                </p>
-            </div>
-
+        </label>
+        <div class="toggleText">
+            <p>
+                {{ .text }}
+            </p>
         </div>
-        {{ end }}
-
-    </div>
-</section>
-{{ end }}
-{{ end }}
+</div>

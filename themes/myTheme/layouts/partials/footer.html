@@ -1,5 +1,13 @@
 <footer>
     <div>
+
+        <section class="impressum">
+            {{ range (where .Site.RegularPages "Section" "impressum") }}
+            {{partial "sections/impressum.html" .Params }}
+            {{.Content}}
+            {{ end }}
+        </section>
+
         {{ with .Site.Params.copyright }}
         <section>{{ . | markdownify }}</section>
         {{ end }}
