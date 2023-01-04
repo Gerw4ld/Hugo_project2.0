@@ -20,7 +20,7 @@
     <section>
         <div>
             {{ range (where .Site.RegularPages "Section" "products") }}
-            {{ partial "product.html" . }}
+            {{ partial "product.html" .Params }}
             {{ end }}
         </div>
     </section>
@@ -50,7 +50,7 @@
         {{ with .Params.mainInfo_title }}<h2>{{ . }}</h2>{{ end }}
         {{ with .Params.mainInfo_subtitle }}<p>{{ . }}</p>{{ end }}
         <div class="containerText">
-            {{ range (where .Site.RegularPages "Section" "mainInfo") }}
+            {{ range (where .Site.RegularPages.ByWeight "Section" "mainInfo") }}
             {{partial "sections/mainInfo.html" .Params }}
             {{.Content}}
             {{ end }}

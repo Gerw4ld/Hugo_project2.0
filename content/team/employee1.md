@@ -5,4 +5,5 @@ name = "John Doe"
 role = """
 Lorem Ipsum
 """
+weight = 100
 +++

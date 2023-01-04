@@ -1,6 +1,7 @@
 +++
 image = "images/image.png"
 text = """
-Lorem Ipsum
+Third Item with weight 100
 """
+weight = 100
 +++

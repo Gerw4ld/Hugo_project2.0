@@ -1,6 +1,7 @@
-item1.md+++
++++
 image = "images/image.png"
 text = """
-Lorem Ipsum
+Second Item with weight 1
 """
+weight = 1
 +++
