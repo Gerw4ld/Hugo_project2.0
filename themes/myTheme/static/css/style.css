@@ -268,3 +268,9 @@ footer {
     display: flex;
     flex-direction: row;
 }
+
+.menuBar {
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+}
