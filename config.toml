@@ -20,7 +20,7 @@ title = "Landingpage for SMEs"
     description = "Landingpage with general info"
 
     # The path to your "favicon". This should be a square (at least 32px x 32px) png-file.
-    favicon = "images/favicon.png"
+    favicon= "/images/favicon.png"
 
     # These "images" are used for the structured data templates. This will show up, when
     # services like Twitter or Slack want to generate a preview of a link to your site.
@@ -32,15 +32,6 @@ title = "Landingpage for SMEs"
     # opengraph structured data template.
     # See https://ogp.me/ and https://gohugo.io/templates/internal#open-graph.
     title = "Gerwald - trust me: soon, I'm an engineer!"
-
-
-    # Banner Section
-    [params.HeroBanner]
-        enable                = true
-        background_image      = "images/background.jpg"
-        title               = "HeroBanner"
-        text               = "Some awesome subtext"
-        button_text           = "Click me"
 
     [params.meta]
         keywords = "some, keywords, for, seo, you, know, google, duckduckgo, and, such"

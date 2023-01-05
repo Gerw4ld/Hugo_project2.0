@@ -26,7 +26,10 @@
     </section>
 
     <section>
-        <div> {{ partial "sections/heroBanner.html" . }}</div>
+        <div>
+            {{partial "sections/heroBanner.html" . }}
+            {{.Content}}
+        </div>
     </section>
 
     <div>
@@ -49,7 +52,7 @@
     <section class="mainInfo">
 
         {{ with .Site.GetPage "section" "mainInfo" }}<h2>{{ .Params.mainInfo_title }}</h2>{{ end }}
-        {{ with .Site.GetPage "section" "mainInfo"  }}<p>{{ .Params.mainInfo_subtitle }}</p>{{ end }}
+        {{ with .Site.GetPage "section" "mainInfo" }}<p>{{ .Params.mainInfo_subtitle }}</p>{{ end }}
         <div class="containerText">
             {{ range (where .Site.RegularPages.ByWeight "Section" "mainInfo") }}
             {{partial "sections/mainInfo.html" .Params }}
@@ -66,8 +69,7 @@
     </section>
 
     <section class="ourTeam">
-
-        {{ with .Params.ourTeam_title }}<h2>{{ . }}</h2>{{ end }}
+        {{ with .Site.GetPage "section" "team" }}<h2>{{ .Params.ourTeam_title }}</h2>{{ end }}
         <div class="containerText">
             {{ range .Site.Data.team }}
             {{partial "sections/ourTeam.html" . }}
