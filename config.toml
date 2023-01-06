@@ -22,30 +22,19 @@ title = "Landingpage for SMEs"
     # The path to your "favicon". This should be a square (at least 32px x 32px) png-file.
     favicon= "/images/favicon.png"
 
-    # These "images" are used for the structured data templates. This will show up, when
-    # services like Twitter or Slack want to generate a preview of a link to your site.
-    # See https://gohugo.io/templates/internal#twitter-cards and
-    # https://gohugo.io/templates/internal#open-graph.
-    images = ["images/background.jpg"]
-
-    # Another "title" :-). This one is used as the site_name on the Hugo's internal
-    # opengraph structured data template.
-    # See https://ogp.me/ and https://gohugo.io/templates/internal#open-graph.
-    title = "Gerwald - trust me: soon, I'm an engineer!"
-
     [params.meta]
         keywords = "some, keywords, for, seo, you, know, google, duckduckgo, and, such"
 
     [[Menu.Main]]
     name = "Hero"
     identifier = "heroBanner"
-    url = "/#heroBanner"
+    url = "/#hero_banner"
     weight = 1
 
     [[Menu.Main]]
     name = "Info"
     identifier = "mainInfo"
-    url = "/#mainInfo"
+    url = "/#main_info"
     weight = 2
 
     [[Menu.Main]]
@@ -57,11 +46,17 @@ title = "Landingpage for SMEs"
     [[Menu.Main]]
     name = "Team"
     identifier = "ourTeam"
-    url = "/#ourTeam"
+    url = "/#our_team"
     weight = 4
 
     [[Menu.Main]]
     name = "Interest"
     identifier = "interest"
     url = "/#interest"
+    weight = 5
+
+    [[Menu.Main]]
+    name = "Text"
+    identifier = "textField"
+    url = "/#text_field"
     weight = 5

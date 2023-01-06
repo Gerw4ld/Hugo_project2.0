@@ -1,4 +1,5 @@
 +++
+title = "contact"
 textLeft = "Opening hours"
 textRight = "Lorem Ispum stuff"
 maps = """

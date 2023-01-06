@@ -1,15 +1,12 @@
 {{ define "main" }}
 {{ $headless := .Site.GetPage "/homepage" }}
-{{ $sections := $headless.Resources.ByType "page" }}
+{{ $sections := .Site.GetPage.Resources.ByType "section" }}
 {{ $sections := cond .Site.BuildDrafts $sections (where $sections "Draft" "==" false) }}
 <header {{ with .Params.header_image }}style="background-image: url({{ . }})" {{ end }}>
     <div>
         <div>
 
-            {{ with .Params.header_headline }}<h1>{{ . }}</h1>{{ end }}
-            {{ with .Params.header_subheadline }}<h2>{{ . }}</h2>{{ end }}
-
-            {{ range where $sections ".Params.header_menu" "eq" true }}
+            {{ range .Site.Pages }}
             <a data-title-anchor='{{ anchorize .Title }}'>{{ .Title }}</a>
             {{ end }}
 
@@ -24,20 +21,19 @@
 </header>
 <main role="main">
 
-    <section>
-        <div>
-            {{ range (where .Site.RegularPages "Section" "products") }}
-            {{ partial "product.html" .Params }}
-            {{ end }}
-        </div>
-    </section>
-
-    <section id="heroBanner">
+    <section  id="heroBanner">
         <div>
             {{partial "sections/heroBanner.html" . }}
             {{.Content}}
         </div>
     </section>
+    <section>
+    <div>
+        {{ range (where .Site.RegularPages "Section" "products") }}
+        {{ partial "product.html" .Params }}
+        {{ end }}
+    </div>
+</section>
 
     <div>
     </div>
@@ -56,7 +52,7 @@
     </div>
     {{ end }}
 
-    <section class="mainInfo" id="mainInfo">
+    <section class="mainInfo" id="main_info">
         {{ with .Site.GetPage "section" "mainInfo" }}<h2>{{ .Params.mainInfo_title }}</h2>{{ end }}
         {{ with .Site.GetPage "section" "mainInfo" }}<p>{{ .Params.mainInfo_subtitle }}</p>{{ end }}
         <div class="containerText">
@@ -67,14 +63,14 @@
         </div>
     </section>
 
-    <section class="contactAndInfoContainer" id="ContactAndInfo">
+    <section class="contactAndInfoContainer" id="contact">
         {{ range (where .Site.RegularPages "Section" "contactAndInfo") }}
         {{partial "sections/contactAndInfo.html" .Params }}
         {{.Content}}
         {{ end }}
     </section>
 
-    <section class="ourTeam" id="ourTeam">
+    <section class="ourTeam" id="our_team">
         {{ with .Site.GetPage "section" "team" }}<h2>{{ .Params.ourTeam_title }}</h2>{{ end }}
         <div class="containerText">
             {{ range .Site.Data.team }}
@@ -91,7 +87,7 @@
         {{ end }}
     </section>
 
-    <section class="textField" id="textField">
+    <section class="textField" id="text_field">
         {{ range (where .Site.RegularPages "Section" "textField") }}
         {{partial "sections/textField.html" .Params }}
         {{.Content}}
