@@ -274,10 +274,12 @@ footer {
     display: flex;
     flex-direction: row;
     background-color: aquamarine;
+    height: 1.5rem;
 }
 
 .menuBarItem{
     height: 1.5rem;
-    weight: 4rem;
+    width: 4rem;
     background-color: yellow;
+    text-align: center;
 }

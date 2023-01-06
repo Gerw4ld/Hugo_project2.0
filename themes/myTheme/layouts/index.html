@@ -15,12 +15,13 @@
 </header>
 <main role="main">
 
-    <section id="heroBanner">
+    <section style="margin-top: 2rem" id="heroBanner">
         <div>
             {{partial "sections/heroBanner.html" . }}
             {{.Content}}
         </div>
     </section>
+
 
     <section class="mainInfo" id="main_info">
         {{ with .Site.GetPage "section" "mainInfo" }}<h2>{{ .Params.mainInfo_title }}</h2>{{ end }}
