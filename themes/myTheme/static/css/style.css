@@ -211,6 +211,7 @@ footer {
 
 .test {
     background-color: red;
+    color: blue;
 }
 
 .imageContainer {
@@ -273,4 +274,10 @@ footer {
     display: flex;
     flex-direction: row;
     background-color: aquamarine;
+}
+
+.menuBarItem{
+    height: 1.5rem;
+    weight: 4rem;
+    background-color: yellow;
 }

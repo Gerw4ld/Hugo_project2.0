@@ -1,56 +1,26 @@
 {{ define "main" }}
-{{ $headless := .Site.GetPage "/homepage" }}
-{{ $sections := .Site.GetPage.Resources.ByType "section" }}
-{{ $sections := cond .Site.BuildDrafts $sections (where $sections "Draft" "==" false) }}
-<header {{ with .Params.header_image }}style="background-image: url({{ . }})" {{ end }}>
-    <div>
-        <div>
+<header>
 
-            {{ range .Site.Pages }}
-            <a data-title-anchor='{{ anchorize .Title }}'>{{ .Title }}</a>
-            {{ end }}
-
-            {{ range .Site.Menus.main }}
-            <div class="menuBar">
-                <p><a href="{{ .URL }}">{{ .Pre }}{{ .Name}}</a></p>
-            </div>
-            {{ end }}
-
+    <div class="menuBar">
+        {{ range .Site.Menus.main }}
+        <div class="menuBarItem">
+            <p class="menuBarItem">
+                <a href="{{ .URL }}">{{ .Pre }}{{ .Name}}</a>
+            </p>
         </div>
+
+        {{ end }}
     </div>
+
 </header>
 <main role="main">
 
-    <section  id="heroBanner">
+    <section id="heroBanner">
         <div>
             {{partial "sections/heroBanner.html" . }}
             {{.Content}}
         </div>
     </section>
-    <section>
-    <div>
-        {{ range (where .Site.RegularPages "Section" "products") }}
-        {{ partial "product.html" .Params }}
-        {{ end }}
-    </div>
-</section>
-
-    <div>
-    </div>
-    {{ range $index_val, $elem_val := $sections }}
-    <div>
-        <article id='{{ anchorize .Title }}'
-                 class='post {{ if eq $index_val 0 }}first{{ end }} {{ if eq (add $index_val 1) (len $sections) }}last{{ end }}'>
-            <header>
-                <h2>{{ .Title }}</h2>
-            </header>
-            <section>
-                {{ .Content }}
-            </section>
-        </article>
-        <div></div>
-    </div>
-    {{ end }}
 
     <section class="mainInfo" id="main_info">
         {{ with .Site.GetPage "section" "mainInfo" }}<h2>{{ .Params.mainInfo_title }}</h2>{{ end }}

@@ -1,8 +1,8 @@
-{{ with .Site.GetPage "section" "heroBanner"}}
+{{ with  .Site.GetPage "section" "heroBanner" }}
 <div class="background-image" style="background-image: url('{{ .Params.background_image }}')">
     <div class="text">
         <h1 class="title">
-            {{ .Params.title }}
+            {{ .Title }}
         </h1>
         <p class="subtext">{{ .Params.text }}</p>
         <button class="button">{{ .Params.button_text }}</button>
