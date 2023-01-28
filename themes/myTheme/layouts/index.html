@@ -1,21 +1,21 @@
 {{ define "main" }}
-<header>
+<header >
 
 <!--    <div>-->
 <!--        {{ .FirstSection }}-->
 <!--        <a>{{ $ }}</a>-->
 <!--    </div>-->
+        <div class="menuBar">
+            {{ range .Site.Menus.main }}
+            <ul class="menuBarItem">
+                <li class="menuBarClickable">
+                    <a href="{{ .URL }}">{{ .Pre }}{{ .Name}}</a>
+                </li>
+            </ul>
 
-    <div class="menuBar">
-        {{ range .Site.Menus.main }}
-        <div class="menuBarItem">
-            <p class="menuBarItem">
-                <a href="{{ .URL }}">{{ .Pre }}{{ .Name}}</a>
-            </p>
+            {{ end }}
         </div>
 
-        {{ end }}
-    </div>
 
 </header>
 <main role="main">

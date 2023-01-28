@@ -262,25 +262,52 @@ footer {
     transform: rotate(45deg);
 }
 
-.displayFlex{
+.displayFlex {
 
 }
 
-.marginForImpressum{
+.marginForImpressum {
     display: flex;
     flex-direction: row;
 }
 
 .menuBar {
     display: flex;
-    flex-direction: row;
-    background-color: aquamarine;
+    justify-content: end;
+    align-items: baseline;
     height: 1.5rem;
 }
 
-.menuBarItem{
+.menuBarItem {
     height: 1.5rem;
-    width: 4rem;
-    background-color: yellow;
+    width: 4.5rem;
     text-align: center;
+    list-style-type: none;
 }
+
+.menuBarClickable {
+    background: slategrey;
+    border-radius: 1rem;
+    padding: 8px;
+}
+
+.menuBarClickable:hover {
+    background-color: lightgrey;
+}
+
+.menuBarClickable a:link {
+    color: white;
+    text-decoration: none;
+}
+
+/* visited link */
+.menuBarClickable a:visited {
+    color: black;
+}
+
+/* selected link */
+menuBarClickable a:active {
+    color: green;
+}
+
+
