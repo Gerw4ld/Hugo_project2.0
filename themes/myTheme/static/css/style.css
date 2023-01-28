@@ -170,17 +170,18 @@ footer {
 
 /* CSS is not working properly */
 
-/*.toggleText {*/
-/*    display: none;*/
-/*}*/
+.toggleText {
+    display: none;
+    background: blueviolet;
+}
 
-/*#toggle:checked ~ #toggleText {*/
-/*    display: block;*/
-/*}*/
+#toggle:checked ~ #toggleText {
+    display: flex;
+}
 
-/*#toggle {*/
-/*    opacity: 0;*/
-/*}*/
+#toggle {
+    opacity: 0;
+}
 
 /* ContactAndInfo */
 
